@@ -1,0 +1,53 @@
+pipeline {
+    agent any  // Use any available Jenkins agent to run this pipeline
+
+    environment {
+        CI = 'false'  // Avoids Continuous Integration mode warnings
+        DEPLOY_DIR = 'C:/apache-tomcat-11.0.10/webapps/ROOT'  // Path to Tomcat ROOT; update as per your setup
+    }
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing npm packages...'
+                // Install all required npm packages listed in package.json
+                bat 'npm install'
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                echo 'Building the application...'
+                // Build the frontend application (output goes to the 'build' folder)
+                bat 'npm run build'
+            }
+        }
+
+        stage('Deploy to Tomcat ROOT') {
+            steps {
+                echo 'Deploying build to Tomcat ROOT directory...'
+                // Remove existing contents of the ROOT directory to avoid conflicts
+                bat "rmdir /S /Q \"${DEPLOY_DIR}\""
+                // Recreate the ROOT directory
+                bat "mkdir \"${DEPLOY_DIR}\""
+                // Copy the contents of the frontend build folder to the ROOT directory
+                bat "xcopy /Y /E /I build \"${DEPLOY_DIR}\""
+                // Update the Deployment URL based on your Tomcat configuration
+                echo "App deployed at http://localhost:8080/"
+                // Wait for 60 seconds to allow Tomcat to pick up the changes
+                sleep(time: 60, unit: 'SECONDS')
+            }
+        }
+    }
+
+    post {
+        success {
+            // Message shown when deployment is successful
+            echo '✅ Frontend deployed successfully to ROOT!'
+        }
+        failure {
+            // Message shown if any stage fails
+            echo '❌ Frontend deployment failed.'
+        }
+    }
+}

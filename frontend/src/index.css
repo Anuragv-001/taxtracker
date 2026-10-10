@@ -1,0 +1,58 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-layout{
+  flex: 1;
+}
+
+/* FULL PAGE BACKGROUND IMAGE */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.65),
+      rgba(2, 6, 23, 0.65)
+    ),
+
+    url("./assets/it.webp");
+
+    /* url("./component/assets/it.webp");
+>>>>>>> Stashed changes */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #ada4a4;
+  overflow-x: hidden;
+}
+
+/* Cards translucent so image is visible */
+/* Glassmorphism cards – FORCE override Bootstrap */
+.card {
+  background-color: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+

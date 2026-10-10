@@ -1,0 +1,99 @@
+
+
+.page-bg {
+
+  min-height: 100vh;
+
+  background:
+
+    linear-gradient(
+
+      rgba(156, 158, 168, 0.85),
+
+      rgba(183, 186, 199, 0.85)
+
+    ),
+
+    url("../assets/it.webp");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+}
+
+
+
+.hero-section {
+
+  padding: 7rem 1rem;
+
+  text-align: center;
+
+  color: rgb(108, 42, 42);
+
+}
+
+
+
+.features-section {
+
+  background-color: #192530;
+
+  padding: 4rem 2rem;
+
+}
+
+
+
+.card {
+
+  background: rgba(255, 255, 255, 0.88); 
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 16px;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+}
+
+
+
+.card:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+
+}
+
+
+
+.card h5 {
+
+  color: #0f172a;
+
+  font-weight: 600;
+
+}
+
+
+
+.card p {
+
+  color: #334155;
+
+  line-height: 1.6;
+
+}
+
+

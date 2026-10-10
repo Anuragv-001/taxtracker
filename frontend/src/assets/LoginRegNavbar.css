@@ -1,0 +1,25 @@
+.auth-navbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background: #0f172a;
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.auth-logo{
+    font-size: 22px;
+    font-weight: 700;
+    color: #fcfbfa;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.auth-logo:hover{
+    opacity: 0.85;
+}
